@@ -57,6 +57,7 @@ class BraidTest {
         val async = context.async()
         client.getNow(8080, "localhost", "/api/echoservice/braid", object : Handler<HttpClientResponse> {
             override fun handle(event: HttpClientResponse?) {
+                async.complete()
                 event!!.bodyHandler(object : Handler<Buffer> {
                     override fun handle(event: Buffer?) {
                         println("Response (" + event?.length() + "): ")
