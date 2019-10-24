@@ -55,7 +55,7 @@ class BraidTest {
     @Test
     fun `test echo service`(context: TestContext) {
         val async = context.async()
-        client.getNow(8080, "localhost", "/api/EchoService/braid", object : Handler<HttpClientResponse> {
+        client.getNow(8080, "localhost", "/api/echoservice/braid", object : Handler<HttpClientResponse> {
             override fun handle(event: HttpClientResponse?) {
                 event!!.bodyHandler(object : Handler<Buffer> {
                     override fun handle(event: Buffer?) {
